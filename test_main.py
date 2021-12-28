@@ -1,0 +1,56 @@
+import unittest
+import boto3
+from moto import mock_dynamodb2
+import main as m
+
+
+@mock_dynamodb2
+class TestDynamodb(unittest.TestCase):
+        
+        def setUp(self):
+                print('setup')
+                self.dynamodb = boto3.resource("dynamodb")
+                table = self.dynamodb.Table("Visitors")
+                self.dynamodb.create_table(
+                        TableName= "Visitors",
+                        KeySchema=[
+                                {
+                                  'AttributeName': 'ID',
+                                  'KeyType': 'HASH'
+                                },
+                        ],
+                        AttributeDefinitions=[
+                                {
+                                  'AttributeName': 'ID',
+                                  'AttributeType': "N"
+                                }
+                        ],
+                        ProvisionedThroughput={
+                                'ReadCapacityUnits': 5,
+                                'WriteCapacityUnits': 5
+                        }
+                )
+                table.put_item(
+                Item={
+                'ID': 0,
+                'Counter': 0
+                })
+        
+        def tearDown(self):
+                print('teardown')
+                self.dynamodb = boto3.resource("dynamodb")
+                table = self.dynamodb.Table("Visitors")
+                table.delete()
+            
+                
+        def test_update_table(self):
+                table = self.dynamodb.Table('Visitors')
+                response = m.lambda_handler(None, None)
+                print(response)
+                self.assertEqual(response['statusCode'], 200)
+                self.assertEqual(response['body'], 1)
+                
+                
+        
+if __name__ =="__main__":
+    unittest.main()

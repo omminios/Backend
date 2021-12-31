@@ -8,7 +8,6 @@ import main as m
 class TestDynamodb(unittest.TestCase):
         
         def setUp(self):
-                print('setup')
                 self.dynamodb = boto3.resource("dynamodb")
                 table = self.dynamodb.Table("Visitors")
                 self.dynamodb.create_table(
@@ -37,16 +36,14 @@ class TestDynamodb(unittest.TestCase):
                 })
         
         def tearDown(self):
-                print('teardown')
                 self.dynamodb = boto3.resource("dynamodb")
                 table = self.dynamodb.Table("Visitors")
                 table.delete()
             
                 
         def test_update_table(self):
-                table = self.dynamodb.Table('Visitors')
+                self.dynamodb.Table('Visitors')
                 response = m.lambda_handler(None, None)
-                print(response)
                 self.assertEqual(response['statusCode'], 200)
                 self.assertEqual(response['body'], 1)
                 

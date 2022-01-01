@@ -8,7 +8,7 @@ import main as m
 class TestDynamodb(unittest.TestCase):
         
         def setUp(self):
-                self.dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
+                self.dynamodb = boto3.resource("dynamodb", region_name="us-east-1", endpoint_url= "http://localhost:8000")
                 table = self.dynamodb.Table("Visitors")
                 self.dynamodb.create_table(
                         TableName= "Visitors",

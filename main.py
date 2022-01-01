@@ -1,7 +1,7 @@
 import boto3
 
 def lambda_handler (event, context):
-    dynamodb = boto3.resource('dynamodb')
+    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
     table = dynamodb.Table('Visitors')
     response = table.update_item(
         Key={

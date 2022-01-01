@@ -36,7 +36,7 @@ class TestDynamodb(unittest.TestCase):
                 })
         
         def tearDown(self):
-                self.dynamodb = boto3.resource("dynamodb")
+                self.dynamodb = boto3.resource("dynamodb", region_name='us-east-1')
                 table = self.dynamodb.Table("Visitors")
                 table.delete()
             

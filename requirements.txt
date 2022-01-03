@@ -1,1 +1,3 @@
+boto3
+moto[dynamodb2]
 requests

@@ -24,9 +24,5 @@ jobs:
     - name: Test code
       run: |
         python test_main.py
-  Deployment:
-    needs: Integration
-    
-    runs-on: ubuntu-latest
     
       

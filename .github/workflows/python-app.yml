@@ -28,7 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Zip files
-      run: zip -r main.zip . -i main.py
+      run: ls
+        zip -r main.zip . -i main.py
     
     
       

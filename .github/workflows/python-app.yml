@@ -29,7 +29,8 @@ jobs:
     steps:
     - name: Zip files
       run:
-        cd..
+        zip -r main.zip .
+        
     
     
       

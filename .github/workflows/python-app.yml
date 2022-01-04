@@ -27,9 +27,15 @@ jobs:
     needs: Integration
     runs-on: ubuntu-latest
     steps:
-    - name: Zip files
-      run:
-        zip -r main.zip .
+    name: configure aws credentials
+    uses: aws-actions/configure-aws-credentials@v1
+    with:
+      aws-access-key-id: ${{
+      aws-secret-access-key: ${{
+      aws-region: ${{
+  - name: Zip files
+    run:
+      zip -r main.zip .
         
     
     

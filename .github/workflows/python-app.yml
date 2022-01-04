@@ -30,9 +30,9 @@ jobs:
     name: configure aws credentials
     uses: aws-actions/configure-aws-credentials@v1
     with:
-      aws-access-key-id: ${{
-      aws-secret-access-key: ${{
-      aws-region: ${{
+      aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
+      aws-secret-access-key: ${{secrets.AWS_SECRET_KEY}}
+      aws-region: ${{secrets.AWS_REGION_NAME}}
   - name: Zip files
     run:
       zip -r main.zip .

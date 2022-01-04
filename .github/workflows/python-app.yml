@@ -24,5 +24,13 @@ jobs:
     - name: Test code
       run: |
         python test_main.py
+        
+  Deployment:
+    needs: Integration
+    runs-on: ubuntu-latest
+    steps:
+    - name: Zip files
+      run: zip -r main.zip main.py
+    
     
       

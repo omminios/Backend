@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "CounterStack"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1bkel8z95mv9l"
+s3_prefix = "CounterStack"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

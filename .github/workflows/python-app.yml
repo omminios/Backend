@@ -32,7 +32,7 @@ jobs:
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region: ${{secrets.AWS_REGION_NAME}}
     - name: Deploy to s3
-      run: aws s3 sync . s3://staticbucket3282
+      run: aws s3 sync . s3://staticbucket3782
     
 
         

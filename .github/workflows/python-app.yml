@@ -19,7 +19,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test code
       run: |
-        python test_main.py
+        python CounterFunction/test_main.py
         
   Deployment:
     needs: Integration

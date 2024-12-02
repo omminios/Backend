@@ -8,6 +8,8 @@ jobs:
   Integration:
     runs-on: ubuntu-latest
     steps:
+    - name: Print Working Directory
+      run: pwd
     - uses: actions/checkout@v3
     - name: Set up Python 3.12.0
       uses: actions/setup-python@v4
@@ -20,8 +22,8 @@ jobs:
     - name: Test code
       run: |
         python CounterFunction/test_main.py
-    - name: List files in CounterFunction directory
-      run: ls -la CounterFunction
+    - name: Print Working Directory
+      run: pwd
     - name: Zip code
       run: zip -r CounterFunction.zip CounterFunction/*
     

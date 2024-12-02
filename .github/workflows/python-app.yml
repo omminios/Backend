@@ -34,9 +34,13 @@ jobs:
     - name: print working dir
       run: pwd
     - name: list directory
+      run: cd..
+    - name: print working dir2
+      run: pwd
+    - name: list
       run: ls -a
     - name: zip code
-      run: zip -r CounterFunction.zip ../CounterFunction
+      run: zip -r CounterFunction.zip ./CounterFunction
     - name: Deploy to Lambda
       run: aws lambda update-function-code \
              --function-name CounterStack-CounterFunction-pkgcrkfU4115 \

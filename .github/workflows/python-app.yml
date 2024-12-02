@@ -26,6 +26,8 @@ jobs:
       run: pwd
     - name: Zip code
       run: zip -r CounterFunction.zip CounterFunction/*
+    - name: List Files
+      run: ls -la
     
   Deployment:
     needs: Integration

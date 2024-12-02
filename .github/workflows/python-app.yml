@@ -20,6 +20,8 @@ jobs:
     - name: Test code
       run: |
         python CounterFunction/test_main.py
+    - name: List files in CounterFunction directory
+      run: ls -la CounterFunction
     
   Deployment:
     needs: Integration

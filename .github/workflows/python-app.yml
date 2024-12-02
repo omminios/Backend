@@ -26,6 +26,12 @@ jobs:
       run: pwd
     - name: Zip code
       run: zip -r CounterFunction.zip CounterFunction/*
+    - name: Upload Zip Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Ccounterfunction-zip
+        path: CounterFunction.zip
+
     - name: List Files
       run: ls -la
     
@@ -43,10 +49,15 @@ jobs:
       run: pwd
     - name: List Files
       run: ls -la
+    - uses: actions/download-artifact@v3
+      with:
+        name: counterfunction-zip
+        path: .
+    
     - name: Deploy to Lambda
       run: aws lambda update-function-code
-          --function-name CounterStack-CounterFunction-pkgcrkfU4115
-          --zip-file fileb://CounterFunction.zip
+            --function-name CounterStack-CounterFunction-pkgcrkfU4115
+            --zip-file CounterFunction.zip
       #run: aws s3 sync . s3://staticbucket3782
     
 

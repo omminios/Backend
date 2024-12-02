@@ -14,7 +14,6 @@ jobs:
       with:
         python-version: "3.11"
     - name: Install dependencies
-      working-directory: ./Backend
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
@@ -36,7 +35,7 @@ jobs:
     - name: print working dir
       run: pwd
     - name: zip code
-      run: zip -r CounterFunction.zip Backend/CounterFunction
+      run: zip -r CounterFunction.zip ./Backend/CounterFunction
     - name: Deploy to Lambda
       run: aws lambda update-function-code \
              --function-name CounterStack-CounterFunction-pkgcrkfU4115 \

@@ -20,7 +20,6 @@ jobs:
     - name: Test code
       run: |
         python CounterFunction/test_main.py
-      
     
   Deployment:
     needs: Integration
@@ -35,7 +34,7 @@ jobs:
     - name: print working dir
       run: pwd
     - name: zip code
-      run: zip -r CounterFunction.zip ./Backend/CounterFunction
+      run: zip -r CounterFunction.zip Backend/CounterFunction
     - name: Deploy to Lambda
       run: aws lambda update-function-code \
              --function-name CounterStack-CounterFunction-pkgcrkfU4115 \

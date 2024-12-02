@@ -38,8 +38,8 @@ jobs:
     - name: Print Working Directory
       run: pwd
     - name: Deploy to Lambda
-      run: aws lambda update-function-code \
-             --function-name CounterStack-CounterFunction-pkgcrkfU4115 \
+      run: aws lambda update-function-code
+          --function-name CounterStack-CounterFunction-pkgcrkfU4115
              --zip-file fileb://CounterFunction.zip
       #run: aws s3 sync . s3://staticbucket3782
     

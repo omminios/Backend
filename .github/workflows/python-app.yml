@@ -33,6 +33,8 @@ jobs:
         aws-region: ${{secrets.AWS_REGION_NAME}}
     - name: print working dir
       run: pwd
+    - name: list directory
+      run: ls -d */
     - name: zip code
       run: zip -r CounterFunction.zip ./Backend/CounterFunction
     - name: Deploy to Lambda

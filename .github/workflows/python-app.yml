@@ -29,7 +29,7 @@ jobs:
     - name: Upload Zip Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: Ccounterfunction-zip
+        name: counterfunction-zip
         path: CounterFunction.zip
 
     - name: List Files

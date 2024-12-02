@@ -34,7 +34,7 @@ jobs:
     - name: print working dir
       run: pwd
     - name: list directory
-      run: ls
+      run: ls -a
     - name: zip code
       run: zip -r CounterFunction.zip ./CounterFunction
     - name: Deploy to Lambda

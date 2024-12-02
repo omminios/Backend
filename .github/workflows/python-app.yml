@@ -32,7 +32,7 @@ jobs:
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region: ${{secrets.AWS_REGION_NAME}}
     - name: zip code
-      run: zip -r CounterFunction.zip 
+      run: zip -r CounterFunction.zip ./CounterFunction/* 
     - name: Deploy to Lambda
       run: aws lambda update-function-code \
              --function-name CounterStack-CounterFunction-pkgcrkfU4115 \

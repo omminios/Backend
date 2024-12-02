@@ -34,7 +34,7 @@ jobs:
     - name: print working dir
       run: pwd
     - name: list directory
-      run: cd..
+      run: cd ..
     - name: print working dir2
       run: pwd
     - name: list

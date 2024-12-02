@@ -21,8 +21,6 @@ jobs:
       run: |
         python CounterFunction/test_main.py
     
-  
-  
   Deployment:
     needs: Integration
     runs-on: ubuntu-latest
@@ -33,6 +31,8 @@ jobs:
         aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region: ${{secrets.AWS_REGION_NAME}}
+    - name: print working dir
+      run: pwd
     - name: zip code
       run: zip -r CounterFunction.zip Backend/CounterFunction
     - name: Deploy to Lambda

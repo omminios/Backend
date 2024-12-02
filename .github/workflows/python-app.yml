@@ -57,7 +57,7 @@ jobs:
     - name: Deploy to Lambda
       run: aws lambda update-function-code
             --function-name CounterStack-CounterFunction-pkgcrkfU4115
-            --zip-file CounterFunction.zip
+            --zip-file fileb://CounterFunction.zip
       #run: aws s3 sync . s3://staticbucket3782
     
 

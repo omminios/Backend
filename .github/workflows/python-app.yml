@@ -33,6 +33,8 @@ jobs:
         aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region: ${{secrets.AWS_REGION_NAME}}
+    - name: Print Working Directory
+      run: pwd
     - name: zip code
       run: zip -r CounterFunction.zip ./Backend/CounterFunction/*
     - name: Deploy to Lambda

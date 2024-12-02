@@ -41,6 +41,8 @@ jobs:
         aws-region: ${{secrets.AWS_REGION_NAME}}
     - name: Print Working Directory
       run: pwd
+    - name: List Files
+      run: ls -la
     - name: Deploy to Lambda
       run: aws lambda update-function-code
           --function-name CounterStack-CounterFunction-pkgcrkfU4115
